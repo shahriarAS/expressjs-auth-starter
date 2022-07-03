@@ -37,6 +37,8 @@ For almost every backend app or API I have to implement complete Auth functional
  7. mongoose
  8. nodemailer
  9. nodemon
+10. jest
+11. supertest
 
 ## **How to use?**
 
