@@ -1,5 +1,5 @@
 // External Import
-import mongoose from "mongoose";
+const mongoose = require("mongoose");
 
 // Init Schema
 const userSchema = mongoose.Schema({
@@ -54,4 +54,4 @@ const userSchema = mongoose.Schema({
 const userModel = new mongoose.model("userModel", userSchema);
 userModel.createIndexes();
 
-export default userModel;
+module.exports = userModel;

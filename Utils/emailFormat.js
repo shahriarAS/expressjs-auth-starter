@@ -182,4 +182,4 @@ const emailFormat = (username, title, url) => {
     )
 }
 
-export default emailFormat
+module.exports = emailFormat

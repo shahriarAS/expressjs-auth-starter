@@ -1,6 +1,6 @@
-import { google } from "googleapis"
-import nodemailer from "nodemailer"
-import emailFormat from "./emailFormat.js"
+const google = require("googleapis").google;
+const nodemailer = require("nodemailer");
+const emailFormat = require("./emailFormat.js");
 
 // These id's and secrets should come from .env file.
 const CLIENT_ID = process.env.CLIENT_ID
@@ -80,4 +80,4 @@ const sendMail = async (email, randString, username, verifyFor, role) => {
   }
 }
 
-export default sendMail
+module.exports = sendMail

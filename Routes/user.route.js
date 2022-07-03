@@ -1,8 +1,8 @@
 // External Module
-import express from "express";
+const express = require("express");
 // Internal Module
-import { userDelete, userEmailVerify, userForgotPassword, userLogin, userPassChange, userRandStringCheck, userRegister, userResetPassword, userView } from "../Controllers/user.controller.js";
-import verifyLoginMiddleware from "../Middlewares/verifyLogin.middleware.js";
+const { userView, userRegister, userLogin, userEmailVerify, userPassChange, userForgotPassword, userRandStringCheck, userResetPassword, userDelete } = require("../Controllers/user.controller.js");
+const verifyLoginMiddleware = require("../Middlewares/verifyLogin.middleware.js")
 
 
 // Router Init
@@ -11,30 +11,30 @@ const userRoute = express.Router()
 // All Student Routes
 
 // User View
-userRoute.get("/view", verifyLoginMiddleware, userView)
+userRoute.get("/view", verifyLoginMiddleware, userView("customer"))
 
 // User Register
-userRoute.get("/register", userRegister)
+userRoute.post("/register", userRegister("customer"))
 
 // User Login
-userRoute.get("/login", userLogin)
+userRoute.post("/login", userLogin("customer"))
 
 // User Email Verify
-userRoute.get("/verify-email/:username/:randString", userEmailVerify)
+userRoute.post("/verify-email/:username/:randString", userEmailVerify("customer"))
 
 // User Change Pass
-userRoute.get("/change-pass", verifyLoginMiddleware, userPassChange)
+userRoute.post("/change-pass", verifyLoginMiddleware, userPassChange("customer"))
 
 // User Forgot Pass
-userRoute.get("/forgot-pass", userForgotPassword)
+userRoute.post("/forgot-pass", userForgotPassword("customer"))
 
 // User Random String Check
-userRoute.get("/check-string/:username/:randString", userRandStringCheck)
+userRoute.post("/check-string/:username/:randString", userRandStringCheck("customer"))
 
 // User Reset Password
-userRoute.get("/reset-pass/:username/:randString", userResetPassword)
+userRoute.post("/reset-pass/:username/:randString", userResetPassword("customer"))
 
 // User Delete User
-userRoute.get("/delete-user", verifyLoginMiddleware, userDelete)
+userRoute.post("/delete-user", verifyLoginMiddleware, userDelete("customer"))
 
-export default userRoute
+module.exports = userRoute

@@ -1,5 +1,5 @@
 // External Module
-import jwt from "jsonwebtoken"
+const jwt = require("jsonwebtoken");
 
 // Middleware
 const verifyLoginMiddleware = async (req, res, next) => {
@@ -11,9 +11,9 @@ const verifyLoginMiddleware = async (req, res, next) => {
         req.userRole = decoded.userRole
         next()
     } catch (err) {
-        res.status(401).send("Failed To Verify Login");
+        res.status(200).send("Failed To Verify Login");
     }
 }
 
 // Export
-export default verifyLoginMiddleware
+module.exports = verifyLoginMiddleware

@@ -1,21 +1,28 @@
 {
-  "name": "ExpressAuth-Starter",
+  "name": "PueLink-server",
   "packageManager": "yarn@3.2.0",
-  "main": "index.js",
-  "type": "module",
+  "main": "app.js",
   "scripts": {
-    "dev": "nodemon index.js"
+    "dev": "nodemon server.js",
+    "test": "jest --watch"
   },
   "dependencies": {
+    "ava": "^4.3.0",
     "bcrypt": "^5.0.1",
+    "chai": "^4.3.6",
     "cors": "^2.8.5",
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
     "googleapis": "^104.0.0",
+    "init": "^0.1.2",
+    "jest": "^28.1.2",
     "jsonwebtoken": "^8.5.1",
+    "mocha": "^10.0.0",
     "mongodb": "^4.7.0",
     "mongoose": "^6.4.2",
-    "nodemailer": "^6.7.6"
+    "nodemailer": "^6.7.6",
+    "npm": "^8.13.2",
+    "supertest": "^6.2.4"
   },
   "devDependencies": {
     "nodemon": "^2.0.18"
