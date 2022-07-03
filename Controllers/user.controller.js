@@ -168,52 +168,6 @@ const userEmailVerify = async (req, res, userType) => {
   }
 };
 
-// User Update User
-// const userUpdate = async (req, res, userType) => {
-//   try {
-//     const existUser = await userModel.findOne({
-//       _id: req.userID,
-//       role: userType,
-//     });
-//     if (existUser) {
-//       if (
-//         existUser.phone == req.body.phone ||
-//         existUser.facebook == req.body.phone
-//       ) {
-//         res.status(401).json({
-//           msg: "Facebook ID & Phone Has To Be Unique",
-//         });
-//       } else {
-//         await userModel.updateOne(
-//           { _id: req.userID, role: userType },
-//           {
-//             $set: { ...req.body, updated_at: Date.now() },
-//             $push: {
-//               notifications: {
-//                 text: "Successfully updated your profile.",
-//                 status: "unread",
-//               },
-//             },
-//           }
-//         );
-//         res.status(200).json({
-//           msg: "Succesfully Updated User",
-//         });
-//       }
-//     } else {
-//       res.status(404).json({
-//         msg: "User Not Found",
-//       });
-//     }
-//   } catch (err) {
-//     // console.log(err)
-//     res.status(500).json({
-//       msg: "Server Error",
-//     });
-//   }
-// };
-
-
 // User Change Password
 const userPassChange = async (req, res, userType) => {
   try {
