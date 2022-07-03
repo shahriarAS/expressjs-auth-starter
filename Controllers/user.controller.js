@@ -39,8 +39,7 @@ const userRegister = (userType) => {
   return async (req, res) => {
     try {
       const existUser = await userModel.findOne({
-        $or: [{ username: req.body.username }, { email: req.body.email }],
-        role: userType,
+        $or: [{ username: req.body.username }, { email: req.body.email }]
       });
       if (!existUser) {
         const hashedPass = await bcrypt.hash(req.body.password, 5);
