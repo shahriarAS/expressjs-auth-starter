@@ -9,6 +9,7 @@ For almost every backend app or API I have to implement complete Auth functional
  3. Email Verification ( Gmail )
  4. Reset Password
  5. Change Password
+ 6. **Test Included ( Jest + Supertest )**
 
 **User Schema Field**
  1. Username
