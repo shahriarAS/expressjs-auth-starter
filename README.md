@@ -49,3 +49,4 @@ For almost every backend app or API I have to implement complete Auth functional
  8. Use `yarn install` or `npm install` command
  9. Use `yarn dev` or `npm dev` command.
 
+**N.B: Your test may fail, take a look and change necessary value to pass.**
