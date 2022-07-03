@@ -7,6 +7,7 @@ const CLIENT_ID = process.env.CLIENT_ID
 const CLEINT_SECRET = process.env.CLEINT_SECRET
 const REDIRECT_URI = process.env.REDIRECT_URI
 const REFRESH_TOKEN = process.env.REFRESH_TOKEN
+const ADMIN_EMAIL = process.env.ADMIN_EMAIL
 
 const oAuth2Client = new google.auth.OAuth2(
   CLIENT_ID,
@@ -22,7 +23,7 @@ const sendMail = async (email, randString, username, verifyFor, role) => {
       service: "Gmail",
       auth: {
         type: 'OAuth2',
-        user: 'umcdev9@gmail.com',
+        user: ADMIN_EMAIL,
         clientId: CLIENT_ID,
         clientSecret: CLEINT_SECRET,
         refreshToken: REFRESH_TOKEN,
@@ -37,30 +38,30 @@ const sendMail = async (email, randString, username, verifyFor, role) => {
     if (verifyFor == "signup") {
       if (role == "admin") {
         url = `${process.env.ADMIN_DOMAIN}/admin/verify/${username}/${randString}`
-        title = "Verify Your UMC Account"
+        title = "Verify Your Account"
         htmlMail = emailFormat(username, title, url)
       }
       else {
-        url = `${process.env.CLIENT_DOMAIN}/student/verify/${username}/${randString}`
-        title = "Verify Your UMC Account"
+        url = `${process.env.CLIENT_DOMAIN}/customer/verify/${username}/${randString}`
+        title = "Verify Your Account"
         htmlMail = emailFormat(username, title, url)
       }
     } else {
       if (role == "admin") {
         const url = `${process.env.ADMIN_DOMAIN}/admin/reset/${username}/${randString}`
-        title = "Reset Your UMC Password"
+        title = "Reset Your Password"
         htmlMail = emailFormat(username, title, url)
       }
       else{
-        const url = `${process.env.CLIENT_DOMAIN}/student/reset/${username}/${randString}`
-        title = "Reset Your UMC Password"
+        const url = `${process.env.CLIENT_DOMAIN}/customer/reset/${username}/${randString}`
+        title = "Reset Your Password"
         htmlMail = emailFormat(username, title, url)
       }
 
     }
 
     var mailOptions = {
-      from: "UMC | Uzzal Math Club",
+      from: "| Express Auth Starter",
       to: email,
       subject: title,
       html: htmlMail

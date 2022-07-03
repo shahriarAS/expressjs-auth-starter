@@ -110,8 +110,8 @@ const emailFormat = (username, title, url) => {
               padding-top: 25px;
               color: #000000;
               font-family: sans-serif;" class="header">
-                <h4 style="margin: 0;">UMC</h4>
-                <p>Uzzal Math Club</p>
+                <h4 style="margin: 0;">ExpressJS Auth Starter</h4>
+                <p>ExpressJS Auth Starter</p>
               </td>
             </tr>
             <tr>
@@ -170,7 +170,7 @@ const emailFormat = (username, title, url) => {
               padding-bottom: 20px;
               color: #999999;
               font-family: sans-serif;" class="footer">
-                UMC - Uzzal Math Club
+              ExpressJS Auth Starter
               </td>
             </tr>
           </table>
